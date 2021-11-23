@@ -4,6 +4,8 @@ const articleRouter = require('./routes/articles')
 //  Express App 
 const app = express();
 
+app.use(express.static(__dirname + '/public'));
+
 // register view engine
 app.set('view engine', 'ejs');
 

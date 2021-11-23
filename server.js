@@ -17,12 +17,20 @@ app.use('/articles',articleRouter);
 
 // Routes
 app.get('/', (req, res) => {
-    const articles = [{
+    const articles = [
+    {
         title: 'tawanda',
-        createdAt: Date.now(),
-        decription: 'tawanda nahre'
+        createdAt: new Date(),
+        description: 'tawanda nahre'
 
-    }]
+    },
+    {
+        title: 'tawanda2',
+        createdAt: new Date(),
+        description: 'tawanda nahre2'
+
+    }
+]
     res.render('articles/index', { articles: articles } )
 
 });

@@ -36,4 +36,4 @@ app.get('/', (req, res) => {
 });
 
 // Listen for request
-app.listen(5000);
+app.listen = process.env.Port || 5000;

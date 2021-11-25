@@ -29,23 +29,10 @@ app.use(express.urlencoded({extended:false}))
 
 // Routes
 app.get('/', (req, res) => {
-    res.redirect('/../views/articles/index.ejs')
     
+    res.render('articles/index', { articles: articles } )
 
 });
-
-app.get('/', (req, res) => {
-    Blog.find().sort({createdAt: -1})
-       .then( (result) => {
-           res.render('articles/index', { title: 'All Blogs', blogs:result } )
-
-       })
-        .catch( (error) => {
-            console.log(err)
-        } )
-});
-
-app.post() 
 
 
 

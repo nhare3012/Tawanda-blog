@@ -1,3 +1,4 @@
+var port = process.env.PORT || 5000;
 const express = require('express');
 const articleRouter = require('./routes/articles')
 
@@ -35,5 +36,7 @@ app.get('/', (req, res) => {
 
 });
 
+
+
 // Listen for request
-app.listen = process.env.Port || 5000;
+app.listen (port);

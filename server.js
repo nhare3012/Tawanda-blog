@@ -8,8 +8,22 @@ const app = express();
 
 const dbURI = 'mongodb+srv://Tumelo:kanyemba@blog.hrnjj.mongodb.net/tawanda-blog?retryWrites=true&w=majority'
 
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology:true })
+
+
+mongoose.connect(
+    dbURI,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    },
+    () => {
+      console.log("Connection to mongodb database was successful!");
+    }
+  );
   
+  
+
+
 
 
 
@@ -18,6 +32,14 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology:true })
 app.use(express.urlencoded({extend: true}))
 app.use(express.static("public"));
 app.set("view engine", "ejs")
+
+
+// routes
+app.use(require("./routes/index"))
+app.use(require("./routes/compose"))
+app.use(require("./routes/blog"))
+
+
 
 // Listen for request
 app.listen(PORT);

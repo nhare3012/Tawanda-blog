@@ -1,5 +1,4 @@
 var PORT = process.env.PORT || 5000
-
 const express = require('express');
 const mongoose = require('mongoose');
 const articleRouter = require('./routes/articles')
@@ -8,9 +7,9 @@ const articleRouter = require('./routes/articles')
 //  Express App 
 const app = express();
 
-mongoose.connect('mongodb://localhost/blog', {
-  useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true
-})
+//  CONNECT TO MONGODB
+const dbURI = 'mongodb+srv://Tumelo:kanyemba@blog.hrnjj.mongodb.net/tawanda-blog?retryWrites=true&w=majority'
+const articleRouter = require('./routes/articles');
 
 
 app.use(express.static(__dirname + '/public'));

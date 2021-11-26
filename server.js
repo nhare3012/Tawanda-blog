@@ -1,51 +1,23 @@
-var PORT = process.env.PORT || 5000
-const express = require('express');
-const mongoose = require('mongoose');
+const express = require('express')
+const mongoose = require('mongoose')
+const Article = require('./models/article')
 const articleRouter = require('./routes/articles')
+const methodOverride = require('method-override')
+const app = express()
 
+mongoose.connect('mongodb://localhost/blog', {
+  useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true
+})
 
-//  Express App 
-const app = express();
-
-//  CONNECT TO MONGODB
-const dbURI = 'mongodb+srv://Tumelo:kanyemba@blog.hrnjj.mongodb.net/tawanda-blog?retryWrites=true&w=majority'
-const articleRouter = require('./routes/articles');
-
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology:true })
-   .then( (results) => app.listen(port))
-   .catch((err) => console.log(err) );
-
-app.use(express.static(__dirname + '/public'));
+app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
+app.use(methodOverride('_method'))
 
-// register view engine
-app.set('view engine', 'ejs');
+app.get('/', async (req, res) => {
+  const articles = await Article.find().sort({ createdAt: 'desc' })
+  res.render('articles/index', { articles: articles })
+})
 
+app.use('/articles', articleRouter)
 
-app.use('/articles',articleRouter);
-
-
-
-
-// Routes
-app.get('/', (req, res) => {
-    const articles = [
-    {
-        title: 'tawanda',
-        createdAt: new Date(),
-        description: 'tawanda nahre'
-
-    },
-    {
-        title: 'tawanda2',
-        createdAt: new Date(),
-        description: 'tawanda nahre2'
-
-    }
-]
-    res.render('articles/index', { articles: articles } )
-
-});
-
-// Listen for request
-// app.listen(PORT);
+app.listen(5000)

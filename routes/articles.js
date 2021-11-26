@@ -2,11 +2,22 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/new', (req, res) => {
-    res.render('articles/new', {title: 'Create a new Blog '} )
+    res.render('articles/new', {article: new Article()} )
 
 });
 
-router.post('./', (req, res) => {
+router.post('./', async (req, res) => {
+    let article = new Article({
+        title: req.body.title,
+        description: req.body.description
+    })
+     try{
+         article = await article.save()
+         res.redirect(`/articles/${aricle.id}`)
+     } catch (e) {
+         console.log(e)
+         res.render('articles/new', {article: article} );
+     }
      
 })
 

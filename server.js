@@ -1,3 +1,4 @@
+const PORT = process.env.PORT || 5000
 const express = require('express')
 const mongoose = require('mongoose')
 const Article = require('./models/article')
@@ -5,9 +6,10 @@ const articleRouter = require('./routes/articles')
 const methodOverride = require('method-override')
 const app = express()
 
-mongoose.connect('mongodb://localhost/blog', {
+mongoose.connect('mongodb+srv://Tumelo:kanyemba@blog.hrnjj.mongodb.net/tawanda-blog?retryWrites=true&w=majority', {
   useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true
 })
+
 
 app.set('view engine', 'ejs')
 app.use(express.urlencoded({ extended: false }))
@@ -20,4 +22,4 @@ app.get('/', async (req, res) => {
 
 app.use('/articles', articleRouter)
 
-app.listen(5000)
+app.listen(PORT)

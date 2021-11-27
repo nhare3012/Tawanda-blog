@@ -1,25 +1,19 @@
 {
-  "name": "markdown-blog",
+  "name": "blog_tutorial",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "devStart": "nodemon server.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "dompurify": "^2.0.8",
-    "ejs": "^3.0.1",
+    "ejs": "^3.1.5",
     "express": "^4.17.1",
-    "jsdom": "^16.2.1",
-    "marked": "^0.8.0",
-    "method-override": "^3.0.0",
-    "mongoose": "^5.9.4",
-    "slugify": "^1.4.0"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.2"
+    "mongoose": "^5.10.3",
+    "nodemon": "^2.0.15"
   }
 }

@@ -1,0 +1,36 @@
+<%- include('./partials/head.ejs') %>
+<%- include('./partials/nav.ejs') %>
+
+<div class="container">
+     
+     <h1>  My blog </h1>
+
+     <div class="row">
+          <% articles.forEach( article => { %>
+          <div class="col-md-6">
+               <div class="card mt-4">
+                    <div class="card-body ">
+                         <h4><%= article.title %></h4>
+                         <div class="card-subtitle mb-2 text-muted  ">
+                               <%= article.createdAt.toLocaleDateString() %>  
+                         </div>
+                         <div class="card-text mb-2">
+                              <%= article.description %>
+                         </div>
+     
+                    </div>
+               </div>
+
+          </div>
+          <%} )%>
+     </div>
+
+     
+            
+    
+        
+
+   
+</div>
+
+<%- include('./partials/futa.ejs') %>

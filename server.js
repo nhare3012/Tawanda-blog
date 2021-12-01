@@ -1,5 +1,6 @@
 const PORT = process.env.PORT || 5000
 const express = require('express');
+const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const articleRouter = require('./routes/articles');
 const app = express();
@@ -13,6 +14,9 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology:true })
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 app.use('/articles', articleRouter);
+app.use(express.urlencoded({extended:false}));
+app.use(bodyParser.json()); 
+app.use(bodyParser.urlencoded({ extended: false })) 
 
 
 app.get('/',  (req, res) => {

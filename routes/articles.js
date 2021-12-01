@@ -1,5 +1,6 @@
 const express = require('express');
-const router = express.Router()
+const Article = require('./../modules/article');
+const router = express.Router();
 
 
 router.get('/new', (req, res) => {
@@ -7,6 +8,9 @@ router.get('/new', (req, res) => {
   });
 
 router.post('/',(req, res) => {
+  const article = new Article({
+    
+  })
   
 })
   

@@ -32,7 +32,7 @@ app.get('/',  (req, res) => {
         createdAt: new Date()
       },
      ]
-     res.render('index', {articles: articles})
+     res.render('article/index', {articles: articles})
   })
 
 

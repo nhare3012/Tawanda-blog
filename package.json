@@ -1,19 +1,31 @@
 {
-  "name": "blog_tutorial",
+  "name": "clear",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app"
+    "start": "nodemon server.js"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nhare3012/Tawanda-blog.git"
+  },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nhare3012/Tawanda-blog/issues"
+  },
+  "homepage": "https://github.com/nhare3012/Tawanda-blog#readme",
   "dependencies": {
-    "ejs": "^3.1.5",
+    "dompurify": "^2.3.3",
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "mongoose": "^5.10.3",
-    "nodemon": "^2.0.15"
+    "jsdom": "^18.1.1",
+    "marked": "^4.0.5",
+    "method-override": "^3.0.0",
+    "mongoose": "^6.0.14",
+    "nodemon": "^2.0.15",
+    "slugify": "^1.6.3"
   }
 }

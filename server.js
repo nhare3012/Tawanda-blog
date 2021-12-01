@@ -7,7 +7,15 @@ const app = express();
 
 //  CONNECT TO MONGODB
 const dbURI = 'mongodb+srv://Tumelo:kanyemba@blog.hrnjj.mongodb.net/tawanda-blog?retryWrites=true&w=majority'
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology:true })
+// mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology:true })
+mongoose.connect(dbURI, {
+useNewUrlParser: true,
+useUnifiedTopology: true,
+useCreateIndex: true,
+}).then(() => console.log("DB Connection Successfull"))
+.catch((err) => {
+console.error(err);
+});
    
 
 

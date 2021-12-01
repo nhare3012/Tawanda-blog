@@ -1,7 +1,13 @@
 const PORT = process.env.PORT || 5000
 const express = require('express');
+const mongoose = require('mongoose');
 const articleRouter = require('./routes/articles');
 const app = express();
+
+//  CONNECT TO MONGODB
+const dbURI = 'mongodb+srv://Tumelo:kanyemba@blog.hrnjj.mongodb.net/tawanda-blog?retryWrites=true&w=majority'
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology:true })
+   
 
 
 app.set('view engine', 'ejs');

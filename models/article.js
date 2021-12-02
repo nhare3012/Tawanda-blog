@@ -1,18 +1,18 @@
 const mongoose = require('mongoose');
 
-const articleSchema = new mongoose.Schema({
+
+const articleShcema = new mongoose.Schema({
     title: {
-        type:String,
-        require: true
+        type: String,
+        required: true
     },
     description: {
-        type:String,
+        type: String,
         
     },
     createdAt: {
-        type:Date,
+        type: Date,
         default:  Date.now
-        
     },
 })
 

@@ -1,8 +1,7 @@
-const PORT = process.env.PORT || 5000
 const express = require('express');
+const articleRouter = require('./routes/articles');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const articleRouter = require('./routes/articles');
 const app = express();
 
 //  CONNECT TO MONGODB
@@ -18,40 +17,38 @@ console.error(err);
 });
    
 
-
 app.set('view engine', 'ejs');
+
 app.use(express.static(__dirname + '/public'));
-app.use('/articles', articleRouter);
+app.use('/articles',articleRouter);
 app.use(express.urlencoded({extended:false}));
 app.use(bodyParser.json()); 
-app.use(bodyParser.urlencoded({ extended: false })) 
+app.use(bodyParser.urlencoded({ extended: false }))
 
-
-app.get('/',  (req, res) => {
-     const articles = [
-       {
-         title: 'My first Article',
-         description:'its a long way to freedom',
+app.get('/', (req, res) => {
+    const articles = [
+        {
+          title: 'My first Article',
+          description:'its a long way to freedom',
+          createdAt: new Date()
+        },
+        {
+         title: 'My first Article2',
+         description:'its a long way to freedom2',
          createdAt: new Date()
        },
        {
-        title: 'My first Article2',
-        description:'its a long way to freedom2',
-        createdAt: new Date()
-      },
-      {
-        title: 'My first Article3',
-        description:'its a long way to freedom3',
-        createdAt: new Date()
-      },
-      {
-        title: 'My first Article3',
-        description:'its a long way to freedom3',
-        createdAt: new Date()
-      },
-     ]
-     res.render('article/index', { articles: articles })
-  })
+         title: 'My first Article3',
+         description:'its a long way to freedom3',
+         createdAt: new Date()
+       },
+       {
+         title: 'My first Article3',
+         description:'its a long way to freedom3',
+         createdAt: new Date()
+       },
+      ]
+    res.render('articles/index', {articles: articles});
+});
 
-
-app.listen(PORT)
+app.listen(5000)

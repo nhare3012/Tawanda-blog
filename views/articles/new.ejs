@@ -1,0 +1,13 @@
+<%- include('../partials/head.ejs') %>
+<%- include('../partials/nav.ejs') %>
+
+<div class="container">
+     
+     <h1 class="mb-4" > New Article</h1>
+     <form action="/articles" method="post">
+        <%- include('../partials/form_fields.ejs') %>
+    </form>   
+        
+</div>
+
+<%- include('../partials/footer.ejs') %>

@@ -1,4 +1,6 @@
+
 const express = require('express');
+const PORT = process.env.PORT || 5000
 const articleRouter = require('./routes/articles');
 const Article = require('./models/article');
 const bodyParser = require('body-parser');
@@ -36,4 +38,4 @@ app.get('/', async (req, res) => {
 
 
 
-app.listen(5000)
+app.listen(PORT)

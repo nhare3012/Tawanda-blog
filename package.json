@@ -26,6 +26,7 @@
     "marked": "^4.0.5",
     "method-override": "^3.0.0",
     "mongoose": "^6.0.14",
+    "node-datetime": "^2.1.2",
     "nodemon": "^2.0.15",
     "slugify": "^1.6.3"
   }

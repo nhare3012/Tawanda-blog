@@ -1,0 +1,18 @@
+<%- include('../partials/head.ejs') %>
+<!-- <%- include('../partials/nav.ejs') %> -->
+
+<div class="container">
+     
+     <h1 class="mb-4" > <%= article.title %> </h1>
+     <div class="text-muted mb-2">
+          published at :  <%= article.createdAt.toLocaleDateString() %> 
+     </div>
+     <div>
+          <%= article.description %>
+     </div>
+     <a href="/" class="btn btn-secondary">All Articles</a>
+        
+        
+</div>
+
+<%- include('../partials/footer.ejs') %>

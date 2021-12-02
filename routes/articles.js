@@ -7,21 +7,25 @@ router.get('/new', (req, res) => {
 
 });
 
-router.get('/:id', (req, res) => {
-    res.send(req.params.id);
+router.get('/:id', async (req, res) => {
+    const article = await Article.findById(req.params._id)
+    if(article == null) res.redirect('/')
+    res.render('articles/show', { article: article})
 
 });
 
 router.post('/', async (req, res) => {
     let article = new Article({
         title: req.body.title,
-        description: req.body.description
+        description: req.body.description,
+        postedAt: req.body.date
     })
     try{
 
      article =  await article.save()
      res.redirect(`/articles/${article.id}`)
-    } catch(error) {
+    }catch(err) {
+        
         res.render('articles/new', { article: article });
 
     }

@@ -10,7 +10,7 @@ const dbURI = 'mongodb+srv://Tumelo:kanyemba@blog.hrnjj.mongodb.net/tawanda-blog
 mongoose.connect(dbURI, {
 useNewUrlParser: true,
 useUnifiedTopology: true,
-useCreateIndex: true,
+// useCreateIndex: true,
 }).then(() => console.log("DB Connection Successfull"))
 .catch((err) => {
 console.error(err);
@@ -20,10 +20,10 @@ console.error(err);
 app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + '/public'));
-app.use('/articles',articleRouter);
 app.use(express.urlencoded({extended:false}));
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use('/articles',articleRouter);
 
 app.get('/', (req, res) => {
     const articles = [
@@ -50,5 +50,7 @@ app.get('/', (req, res) => {
       ]
     res.render('articles/index', {articles: articles});
 });
+
+
 
 app.listen(5000)

@@ -1,11 +1,13 @@
 <div class="form-group">
     <label for="title">Title</label>
-    <input type="text" name="title" id="title" class="form-control" >
+    <input type="text" value="<%= article.title %>" name="title" id="title" class="form-control" >
 </div>
 
 <div class="form-group">
     <label for="description">Description</label>
-    <textarea name="description" id="description" cols="30" rows="10" class="form-control" ></textarea>
+    <textarea name="description" id="description" cols="30" rows="10" class="form-control" >
+        <% article.description %>
+    </textarea>
 </div>
 
 <a href="/" class="btn btn-secondary">Cancel</a>

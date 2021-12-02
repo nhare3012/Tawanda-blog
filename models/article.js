@@ -16,4 +16,4 @@ const articleShcema = new mongoose.Schema({
     },
 })
 
-module.exports = mongoose.model('Article', articleSchema)
+module.exports = mongoose.model('Article', articleShcema)

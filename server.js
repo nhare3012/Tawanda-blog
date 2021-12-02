@@ -3,6 +3,7 @@ const express = require('express');
 const PORT = process.env.PORT || 5000
 const articleRouter = require('./routes/articles');
 const Article = require('./models/article');
+const methodOverride = require('method-override')
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const app = express();
@@ -28,6 +29,7 @@ app.use(express.urlencoded({extended:false}));
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use('/articles',articleRouter);
+app.use(methodOverride('_method'));
 
 app.get('/', async (req, res) => {
     const articles = await Article.find().sort({

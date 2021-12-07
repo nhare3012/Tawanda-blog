@@ -24,9 +24,9 @@ const articleSchema = new mongoose.Schema({
         type: String,
         
     },
+    
+    time : { type : Date, default: Date.now }
    
-   
-
 })
 
 

@@ -1,5 +1,6 @@
 
 const express = require('express');
+const morgan = require('morgan')
 const PORT = process.env.PORT || 5000
 const articleRouter = require('./routes/articles');
 const Article = require('./models/article');
@@ -23,7 +24,7 @@ console.error(err);
 
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
-
+app.use(morgan('common'))
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({extended:false}));
 app.use(bodyParser.json()); 

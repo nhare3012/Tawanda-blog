@@ -17,7 +17,7 @@ router.post('/', async (req, res) => {
     let article = new Article({
         title: req.body.title,
         description: req.body.description,
-        postedAt: req.body.date,
+        time : req.body.time ,
         likes: req.body.likes
         
     })

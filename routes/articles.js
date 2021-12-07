@@ -18,6 +18,7 @@ router.post('/', async (req, res) => {
         title: req.body.title,
         description: req.body.description,
         postedAt: req.body.date,
+        likes: req.body.likes
         
     })
     try{
@@ -34,8 +35,12 @@ router.post('/', async (req, res) => {
 
 
 
+
+
+
+
 // POST request for first user
-// app.post('/user', (req, res) => {
+// router.post('/user', (req, res) => {
 //     var newUser = new User({
 //         name: req.body.name
 //     });
@@ -47,7 +52,7 @@ router.post('/', async (req, res) => {
 // });
 
 // POST request for post
-// app.post('/:id', (req, res) => {
+// router.post('/:id', (req, res) => {
 //     // Create post and saving
 //         _id: req.params.id;
 //         var post = new Post({

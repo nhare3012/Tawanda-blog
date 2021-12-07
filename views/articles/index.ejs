@@ -5,39 +5,36 @@
      
      <h1>  My blog </h1>
      <div class="row">
-          <% articles.forEach( article => { %>
-          <div class="col-md-6">
-               <div class="card mt-4">
-                    <div class="card-body ">
-                         <h4><%= article.title %></h4>
-                         <div class="card-subtitle mb-2 mt-2 text-muted  ">
-                             published at :  <%= article.createdAt.toLocaleDateString() %>  
+          <% articles.forEach( article => { %>  
+               <div class="col-md-6">
+                    <div class="card mt-4">
+                         <div class="card-body ">
+                              <h4><%= article.title %></h4>
+                              <div class="card-subtitle mb-2 mt-2 text-muted  ">
+                              published at :  <%= article.createdAt.toLocaleDateString() %>  
+                              </div>
+                              <div class="card-text mb-2">
+                                   <%= article.description %>
+                              </div>
+                              <a href="articles/<%= article.slug %>" class="btn btn-primary">Read More</a>
+                              <div class="like d-inline "> 
+                                   <button id="myButton" class="btn btn-primary" > 
+                                        <%= article.likes %>
+                                        <i class='fas fa-thumbs-up' style='font-size:24px'> </i>
+                                    </button>    
+                              </div>
+                              <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
+                                   <button type="submit" class="btn btn-danger">Delete</button>
+                              </form>
+                             
+          
                          </div>
-                         <div class="card-text mb-2">
-                              <%= article.description %>
-                         </div>
-                         <a href="articles/<%= article.slug %>" class="btn btn-primary">Read More</a>
-                         <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
-                              <button type="submit" class="btn btn-danger">Delete</button>
-                         </form>
-     
+                         
+                           
                     </div>
-               </div>
-               <div class="car">
-                    <h1 class="card-header" >Leave a Comment</h1>
-                    <form action="" method="POST">
-                         <input type="hidden" name="post_id">
-                         <div class="form-group">
-                              <input type="text" name="username" class="form-control">
-                         </div>
-                         <div class="from-group">
-                              <textarea name="comment" id="comment" col="30"  rows="5" class="form-group"></textarea>
-                         </div>
-                         <button type="submit" class="btn btn-primary">Submit</button>
-                    </form>
-               </div>
+                 
 
-          </div>
+               </div>
           <%} )%>
          
             

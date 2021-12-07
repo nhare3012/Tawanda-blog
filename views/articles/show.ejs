@@ -3,13 +3,26 @@
 
 <div class="container">
      
-     <h1 class="mb-4" > <%= article.title %> </h1>
+     <h1  > <%= article.title %> </h1>
      <div class="text-muted mb-2">
           published at :  <%= article.createdAt.toLocaleDateString() %> 
      </div>
      <div>
           <%= article.description %>
      </div>
+     <!-- <div class="card">
+          <h1 class="card-header" >Leave a Comment</h1>
+          <form action="" method="POST">
+               <input type="hidden" class="d-none " id="h" name="post_id">
+               <div class="form-group">
+                    <input type="text" name="username"  class="form-control">
+               </div>
+               <div class="from-group">
+                    <textarea name="comment" id="comment" col="30"  rows="5" class="form-group"></textarea>
+               </div>
+               <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+     </div> -->
      <a href="/" class="btn btn-secondary">All Articles</a>
         
         

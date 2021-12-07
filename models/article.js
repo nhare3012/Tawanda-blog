@@ -20,6 +20,10 @@ const articleSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    likes: {
+        type: String,
+        
+    },
    
    
 
@@ -71,5 +75,5 @@ articleSchema.pre('validate', function (next) {
 })
 
 module.exports = mongoose.model('Article', articleSchema);
-module.exports = mongoose.model('Article', UserSchema);
-module.exports = mongoose.model('Article', PostSchema);
+// module.exports = mongoose.model('Article', UserSchema);
+// module.exports = mongoose.model('Article', PostSchema);

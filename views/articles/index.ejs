@@ -18,10 +18,9 @@
                               </div>
                               <a href="articles/<%= article.slug %>" class="btn btn-primary">Read More</a>
                               <div class="like d-inline "> 
-                                   <button id="myButton" class="btn btn-primary" > 
-                                        <%= article.likes %>
-                                        <i class='fas fa-thumbs-up' style='font-size:24px'> </i>
-                                    </button>    
+                                    <a href="https://www.facebook.com/" class="btn btn-primary" >
+                                        <i class="fas fa-share"  style='font-size:20px'> </i>
+                                   </a>
                               </div>
                               <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
                                    <button type="submit" class="btn btn-danger">Delete</button>

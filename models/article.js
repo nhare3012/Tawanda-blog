@@ -24,42 +24,16 @@ const articleSchema = new mongoose.Schema({
         type: String,
         
     },
-    
+    image: {
+        type: String,
+        
+    },
     time : { type : Date, default: Date.now }
    
 })
 
 
-// const UserSchema = new mongoose.Schema({    
-//     name: { 
-//       type: String,
-//       required: true, 
-//       minlength : 2,     
-//       maxlength: 20,      
-//       trim : true,
-//        }
-//     });
 
-// const PostSchema = new mongoose.Schema({ 
-//     title:{
-//       type: String,
-//       required: true, 
-//       minlength : 2 ,  
-//       maxlength: 20,    
-//       trim : true
-//     },
-//     postedBy: {       
-//       type: mongoose.Schema.Types.ObjectId,        
-//       ref: 'User'    
-//     },    
-//     comments: [{        
-//       text: String,        
-//       postedBy: {            
-//         type: mongoose.Schema.Types.ObjectId,           
-//         ref: 'User'        
-//       }        
-//     }]
-// })
 
 
 
@@ -75,5 +49,3 @@ articleSchema.pre('validate', function (next) {
 })
 
 module.exports = mongoose.model('Article', articleSchema);
-// module.exports = mongoose.model('Article', UserSchema);
-// module.exports = mongoose.model('Article', PostSchema);

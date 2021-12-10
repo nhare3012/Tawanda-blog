@@ -1,15 +1,25 @@
 <%- include('../partials/head.ejs') %>
 <!-- <%- include('../partials/nav.ejs') %> -->
 
-<div class="container">
-     
-     <h1  > <%= article.title %> </h1>
-     <div class="text-muted mb-2">
-          published at :  <%= article.createdAt.toLocaleDateString() %> 
+<div class="container pt-5">
+
+     <h1 class="textn-center"> <%= article.title %> </h1>
+     <div class="row">
+          <div class="col-12">
+               <div class="text-muted mb-2">
+                    published at : <%= article.createdAt.toLocaleDateString() %>
+               </div>
+
+          </div>
+          <div class="col-12">
+               <div>
+                    <%= article.description %>
+               </div>
+
+          </div>
      </div>
-     <div>
-          <%= article.description %>
-     </div>
+
+
      <!-- <div class="card">
           <h1 class="card-header" >Leave a Comment</h1>
           <form action="" method="POST">
@@ -24,8 +34,8 @@
           </form>
      </div> -->
      <a href="/" class="btn btn-secondary">All Articles</a>
-        
-        
+
+
 </div>
 
 <%- include('../partials/footer.ejs') %>

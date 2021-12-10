@@ -2,48 +2,58 @@
 <%- include('../partials/nav.ejs') %>
 
 <div class="container">
-     
-     <h1>  My blog </h1>
+
+     <h1 class="pt-5 pb-5"> My blog </h1>
      <div class="row">
-          <% articles.forEach( article => { %>  
-               <div class="col-md-6">
-                    <div class="card mt-4">
-                         <div class="card-body ">
-                              <h4><%= article.title %></h4>
-                              <div class="card-subtitle mb-2 mt-2 text-muted  ">
-                                published at :<%= article.time %>  
-                              </div>
-                              <div class="card-text mb-2">
-                                   <%= article.description %>
-                              </div>
-                              <a href="articles/<%= article.slug %>" class="btn btn-primary">Read More</a>
-                              <div class="like d-inline "> 
-                                    <a href="https://www.facebook.com/" class="btn btn-primary" >
-                                        <i class="fas fa-share"  style='font-size:20px'> </i>
-                                   </a>
-                              </div>
-                              <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
-                                   <button type="submit" class="btn btn-danger">Delete</button>
-                              </form>
-                             
-          
+          <% articles.forEach( article => { %>
+          <div class="col-md-6">
+               <div class="row   ">
+                    <div class="col-md-3 mb-2 border pt-2">
+                         <div class="img border mt-4">
+                              <!-- <img src="https://images.pexels.com/photos/3153203/pexels-photo-3153203.jpeg?cs=srgb&dl=pexels-canva-studio-3153203.jpg&fm=jpg" alt="" class="img-fluid"> -->
+                              <img src="/Uploads/images/<%= article.image %>" class="img-fluid" alt="" srcset="">
                          </div>
                          
-                           
                     </div>
-                 
+                    <div class="col-md-9 border mb-2 pt-2">
+                         <div class="card mt-4 ">
+
+                              <div class="card-body ">
+                                   <h4><%= article.title %></h4>
+                                   <div class="card-subtitle mb-2 mt-2 text-muted  ">
+                                        published at :<%= article.time %>
+                                   </div>
+                                   <div class="card-text mb-2">
+                                        <%= article.description %>
+                                   </div>
+                                   <a href="articles/<%= article.slug %>" class="btn btn-primary">Read More...</a>
+                                   <div class="like d-inline ">
+                                        <a href="https://www.facebook.com/" class="btn btn-primary">
+                                             <i class="fas fa-share" style='font-size:20px'> </i>
+                                        </a>
+                                   </div>
+                                   <form action="/articles/<%= article.id %>?_method=DELETE" method="POST"
+                                        class="d-inline">
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                   </form>
+
+                              </div>
+                         </div>
+                    </div>
 
                </div>
+
+          </div>
           <%} )%>
-         
-            
-          
+
+
+
      </div>
 
-     
-            
-    
-        
+
+
+
+
 </div>
 
 <%- include('../partials/footer.ejs') %>

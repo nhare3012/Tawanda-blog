@@ -1,5 +1,10 @@
+import { stripHtml } from "string-strip-html";
 const mongoose = require('mongoose');
 const slugify = require('slugify')
+const domPurifier = require('dompurify');
+const { JSDOM } = require('jsdom');
+const htmlPurify = domPurifier(new JSDOM().window);
+// const stripHtml = require('string-strip-html');
 
 
 const articleSchema = new mongoose.Schema({
@@ -47,5 +52,16 @@ articleSchema.pre('validate', function (next) {
 
     next()
 })
+
+articleSchema.pre('validate', function (next) {
+    //check if there is a description
+    if (this.description) {
+      this.description = htmlPurify.sanitize(this.description);
+      this.snippet = stripHtml(this.description.substring(0, 200)).result;
+    }
+  
+    next();
+  });
+  
 
 module.exports = mongoose.model('Article', articleSchema);

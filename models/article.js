@@ -32,6 +32,9 @@ const articleSchema = new mongoose.Schema({
         type: String,
         
     },
+    cloudinary_id: {
+        type: String,
+      },
     time : { type : Date, default: Date.now }
    
 })

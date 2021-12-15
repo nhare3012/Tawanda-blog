@@ -1,6 +1,5 @@
 
 const express = require('express');
-
 const morgan = require('morgan')
 const PORT = process.env.PORT || 5000
 const articleRouter = require('./routes/articles');
@@ -9,6 +8,11 @@ const methodOverride = require('method-override')
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const app = express();
+const path = require("path");
+
+const dotenv = require("dotenv");
+dotenv.config();
+
 
 //  CONNECT TO MONGODB
 const dbURI = 'mongodb+srv://Tumelo:kanyemba@blog.hrnjj.mongodb.net/tawanda-blog?retryWrites=true&w=majority'
@@ -21,7 +25,14 @@ useUnifiedTopology: true,
 .catch((err) => {
 console.error(err);
 });
-   
+
+const cloudinary = require("cloudinary").v2;
+cloudinary.config({
+  cloud_name: tawanda-3012,
+  api_key: 487432961982727,
+  api_secret: q9KKQCVqdmTZbcNQtoaUu2Gxyt0,
+}); 
+
 
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));

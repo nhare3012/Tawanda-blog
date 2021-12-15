@@ -1,11 +1,10 @@
-import { stripHtml } from "string-strip-html";
+// import { stripHtml } from "string-strip-html";
 const mongoose = require('mongoose');
 const slugify = require('slugify')
 const domPurifier = require('dompurify');
 const { JSDOM } = require('jsdom');
 const htmlPurify = domPurifier(new JSDOM().window);
 // const stripHtml = require('string-strip-html');
-
 
 const articleSchema = new mongoose.Schema({
     title: {

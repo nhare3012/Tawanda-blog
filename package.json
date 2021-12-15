@@ -1,13 +1,13 @@
 {
   "name": "Tawanda_blog",
   "version": "1.0.0",
+
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js"
   },
-
-
+  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nhare3012/Tawanda-blog.git"
@@ -41,5 +41,9 @@
     "slugify": "^1.6.3",
     "string-strip-html": "^9.1.1"
   },
- 
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4"
+  }
 }

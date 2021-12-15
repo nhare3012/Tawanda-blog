@@ -1,9 +1,10 @@
 
 const express = require('express');
+
 const morgan = require('morgan')
 const PORT = process.env.PORT || 5000
 const articleRouter = require('./routes/articles');
-const Article = require('./models/article');
+const Article = require('./models/article.js');
 const methodOverride = require('method-override')
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');

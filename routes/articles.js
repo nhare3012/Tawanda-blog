@@ -1,6 +1,6 @@
 const  express = require('express');
-const Article = require('./../models/article');
-const Auth = require('./../models/Auth')
+const Article = require('../models/article.js');
+const Auth = require('../models/Auth.js')
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const multer = require('multer');
@@ -109,6 +109,10 @@ router.post('/register', async (req,res)=> {
  
  
  })
+
+
+
+ 
 
 
 

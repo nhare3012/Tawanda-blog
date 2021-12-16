@@ -8,8 +8,6 @@ const methodOverride = require('method-override')
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const app = express();
-const path = require("path");
-
 const dotenv = require("dotenv");
 dotenv.config();
 
@@ -26,12 +24,8 @@ useUnifiedTopology: true,
 console.error(err);
 });
 
-const cloudinary = require("cloudinary").v2;
-cloudinary.config({
-  cloud_name: tawanda-3012,
-  api_key: 487432961982727,
-  api_secret: q9KKQCVqdmTZbcNQtoaUu2Gxyt0,
-}); 
+
+
 
 
 app.set('view engine', 'ejs');
@@ -52,6 +46,4 @@ app.get('/', async (req, res) => {
 });
 
 
-app.listen(process.env.PORT || 5000,() => {
-  console.log("Server is up at port "+process.env.PORT);
-});
+app.listen(PORT)

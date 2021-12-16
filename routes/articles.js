@@ -1,12 +1,12 @@
-const aws = require('aws-sdk');
+
 const  express = require('express');
 const Article = require('../models/article.js');
 const Auth = require('../models/Auth.js')
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const multer = require('multer');
-const multerS3 = require('multer-s3');
-const s3 = new aws.S3({ /* ... */ })
+// const upload = require('../utils/multer');
+// const cloudinary = require('../utils/cloudinar');
 
 const storage = multer.diskStorage({
    
@@ -17,16 +17,7 @@ const storage = multer.diskStorage({
     filename:function(request, file,callback){
         callback(null,Date.now() + file.originalname)
     }, 
-    fileFilter: (req, file, cb) => {
-        let ext = path.extname(file.originalname);
-          if (ext !== ".jpg" && ext !== ".jpeg" && ext !== ".png") {
-          cb(new Error("File type is not supported"), false);
-          return;
-        }
-        cb(null, true);
-      },
-
-
+   
 
 })
 
@@ -53,19 +44,22 @@ router.get('/:slug', async (req, res) => {
   })
 
 router.post('/',upload.single('image'), async (req, res) => {
-    const result = await cloudinary.uploader.upload(req.file.path);
-    let article = new Article({
+
+     let article = new Article({
         title: req.body.title,
         description: req.body.description,
         time : req.body.time ,
         likes: req.body.likes,
         image: req.file.filename,
+        cloudinary_id: result.public_id,
         
-    })
+    });
+    
     try{
-
+        
      article =  await article.save()
      res.redirect(`/articles/${article.slug}`)
+
     }catch(err) {
         
         res.render('articles/new', { article: article });

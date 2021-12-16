@@ -3,14 +3,11 @@ const express = require('express');
 const morgan = require('morgan')
 const PORT = process.env.PORT || 5000
 const articleRouter = require('./routes/articles');
-const Article = require('./models/article.js');
+const Article = require('./models/article');
 const methodOverride = require('method-override')
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const app = express();
-const dotenv = require("dotenv");
-dotenv.config();
-
 
 //  CONNECT TO MONGODB
 const dbURI = 'mongodb+srv://Tumelo:kanyemba@blog.hrnjj.mongodb.net/tawanda-blog?retryWrites=true&w=majority'
@@ -23,10 +20,7 @@ useUnifiedTopology: true,
 .catch((err) => {
 console.error(err);
 });
-
-
-
-
+   
 
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
@@ -46,6 +40,5 @@ app.get('/', async (req, res) => {
 });
 
 
-app.listen(process.env.PORT || 5000,() => {
-  console.log("Server is up at port "+process.env.PORT);
-});
+
+app.listen(PORT)

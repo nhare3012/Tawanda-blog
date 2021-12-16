@@ -2,12 +2,15 @@
 
 
 
-h1{ 
+h1{
+  
     color: red;
-  font-family: montserrat;  
+    font-family: montserrat;
+    
 }
 
 #comment{
     width: 37.5vw!important;
 }
 
+#h{display: none!important;}

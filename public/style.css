@@ -5,8 +5,12 @@
 h1{
   
     color: red;
-    font-family: montserrat;
-    
+    font-family: montserrat;   
+}
+
+.img img{
+    height: 210px;
+    object-fit: cover;
 }
 
 #comment{

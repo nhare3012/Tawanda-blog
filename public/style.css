@@ -8,13 +8,29 @@ h1{
     font-family: montserrat;   
 }
 
+.navbar-brand{
+    color:red!important;
+    font-size:30px;
+    font-family: montserrat;  
+}
+
+.navbar-nav .nav-item .nav-link{
+    color:red!important;
+    font-size:30px;
+    font-family: montserrat;  
+}
+
 .img img{
-    height: 210px;
+    height: 205px;
     object-fit: cover;
 }
 
-#comment{
-    width: 37.5vw!important;
+
+
+.k{
+    color:red!important
 }
 
-#h{display: none!important;}
+.home{
+    margin-top:20px !important
+}

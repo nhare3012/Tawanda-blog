@@ -20,10 +20,7 @@ const articleSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    likes: {
-        type: String,
-        
-    },
+  
     image: {
         type: String,
         

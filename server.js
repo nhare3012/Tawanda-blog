@@ -7,6 +7,10 @@ const Article = require('./models/article');
 const methodOverride = require('method-override')
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const helmet = require("helmet");
+const authRoute = require("./routes/auth");
+const userRoute = require("./routes/users");
+
 const app = express();
 
 //  CONNECT TO MONGODB
@@ -30,7 +34,12 @@ app.use(express.urlencoded({extended:false}));
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use('/articles',articleRouter);
+app.use("/api/auth", authRoute);
+app.use("/api/users", userRoute);
 app.use(methodOverride('_method'));
+app.use(helmet());
+
+
 
 app.get('/', async (req, res) => {
     const articles = await Article.find().sort({
